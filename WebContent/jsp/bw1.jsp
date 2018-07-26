@@ -1,7 +1,4 @@
-<%@ page language="java" import= "java.io.*, ne = line.replaceAll(" ", "");
-        line = line.replaceAll("<html>", "");
-        line = line.replaceAll("</html>","");
-java.util.*"  
+<%@ page language="java" import= "java.io.*, java.util.*
    contentType="text/html;charset=EUC-KR" session="false" %>
 <html>
 <%

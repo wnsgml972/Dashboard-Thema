@@ -114,7 +114,7 @@ $ ./bwloop.sh enp0s8<br/>
 
 <pre>
 /*
- * MMMP STA : Interface Bandwidth Calulation
+ * MMMP STA : Interface Current Bandwidth Calulation
  * by bgjung@etri.re.kr
  */
 
@@ -135,9 +135,6 @@ $ ./bwloop.sh enp0s8<br/>
 
 typedef struct {
     char   ifname[20];
-    unsigned long    rx_bytes_last;
-    unsigned long    tx_bytes_last;
-    unsigned long    total_bytes_last;
 } ifbwinfo;
 
 ifbwinfo ifbw[4];
@@ -146,8 +143,8 @@ int main(){
     struct ifaddrs *addrs,*tmp;
     int ifcnt = 0;
     int i;
-    char path[50];
-    FILE *file;
+    char path1[50], path2[50];
+    FILE *file1, *file2, *file3, *file4;
     ifbwinfo *tmp2;
     struct sockaddr_in *sa;
     char addr[10];
@@ -162,9 +159,6 @@ int main(){
             if (tmp->ifa_addr && tmp->ifa_addr->sa_family == AF_INET &&
                 strcmp(tmp->ifa_name, "lo")) {
                 strcpy(tmp2->ifname, tmp->ifa_name);
-                tmp2->rx_bytes_last = 0;
-                tmp2->rx_bytes_last = 0;
-                tmp2->total_bytes_last = 0;
                 ifcnt++;
                 tmp2++;
             }
@@ -185,52 +179,52 @@ int main(){
       tmp2 = ifbw;
       for (i=0; i<ifcnt; i++)
       {
-          unsigned long diff_tx_bytes, tx_bytes_now;
-          unsigned long diff_rx_bytes, rx_bytes_now;
-          unsigned long diff_total_bytes, total_bytes_now;
+          unsigned long tx_bytes_last, rx_bytes_last;
+          unsigned long tx_bytes_now, rx_bytes_now;
+          unsigned long diff_tx_bytes, diff_rx_bytes;
+          unsigned long diff_total_bytes;
 
           double tx_in_mbips, rx_in_mbips, total_in_mbips;
-      float tx_in_mbipsf, rx_in_mbipsf, total_in_mbipsf;
+          float tx_in_mbipsf, rx_in_mbipsf, total_in_mbipsf;
 
-          sprintf(path,"/sys/class/net/%s/statistics/tx_bytes", tmp2->ifname);
-          file = fopen(path, "r");
-          fscanf(file, "%lu", (unsigned long *)&tx_bytes_now);
-          fclose(file);
-          sprintf(path,"/sys/class/net/%s/statistics/rx_bytes", tmp2->ifname);
-          file = fopen(path, "r");
-          fscanf(file, "%lu", (unsigned long *)&rx_bytes_now);
-          fclose(file);
-          total_bytes_now = tx_bytes_now + rx_bytes_now;
-
-          if (tmp2->rx_bytes_last) {
-            diff_tx_bytes = tx_bytes_now - tmp2->tx_bytes_last;
-            diff_rx_bytes = rx_bytes_now - tmp2->rx_bytes_last;
-            diff_total_bytes = total_bytes_now - tmp2->total_bytes_last;
-
-            tx_in_mbips = (double)((diff_tx_bytes * 8) / 1000000) +
-              (((diff_tx_bytes * 8) % 1000000)*0.000001);
-            rx_in_mbips = (double)((diff_rx_bytes * 8) / 1000000) +
-              (((diff_rx_bytes * 8) % 1000000)*0.000001);
-            total_in_mbips = (double)((diff_total_bytes * 8) / 1000000) +
-              (((diff_total_bytes * 8) % 1000000)*0.000001);
-
-            tx_in_mbipsf = (float)tx_in_mbips;
-            rx_in_mbipsf = (float)rx_in_mbips;
-            total_in_mbipsf = (float)total_in_mbips;
-
-            curr = time(NULL);
-            d = localtime(&curr);
-
-// ctime(d) to print timeStamp
-            printf("%s: tx %.5f Mbits/sec rx %.5f Mbits/sec total %.5f Mbits/sec\n",
-              tmp2->ifname, tx_in_mbipsf, rx_in_mbipsf, total_in_mbipsf);
-          }
-
-          tmp2->tx_bytes_last = tx_bytes_now;
-          tmp2->rx_bytes_last = rx_bytes_now;
-          tmp2->total_bytes_last = total_bytes_now;
-
+          sprintf(path1,"/sys/class/net/%s/statistics/tx_bytes", tmp2->ifname);
+          sprintf(path2,"/sys/class/net/%s/statistics/rx_bytes", tmp2->ifname);
+          file1 = fopen(path1, "r");
+          file2 = fopen(path2, "r");
+          fscanf(file1, "%lu", (unsigned long *)&tx_bytes_last);
+          fscanf(file2, "%lu", (unsigned long *)&rx_bytes_last);
           sleep(1);
+          file3 = fopen(path1, "r");
+          file4 = fopen(path2, "r");
+          fscanf(file3, "%lu", (unsigned long *)&tx_bytes_now);
+          fscanf(file4, "%lu", (unsigned long *)&rx_bytes_now);
+
+          fclose(file1);
+          fclose(file2);
+          fclose(file3);
+          fclose(file4);
+
+          diff_tx_bytes = tx_bytes_now - tx_bytes_last;
+          diff_rx_bytes = rx_bytes_now - rx_bytes_last;
+          diff_total_bytes = diff_tx_bytes + diff_rx_bytes;
+
+          tx_in_mbips = (double)((diff_tx_bytes * 8) / (1024*1024)) +
+              (((diff_tx_bytes * 8) % (1024*1024))*0.000001);
+          rx_in_mbips = (double)((diff_rx_bytes * 8) / (1024*1024)) +
+              (((diff_rx_bytes * 8) % (1024*1024))*0.000001);
+          total_in_mbips = (double)((diff_total_bytes * 8) / (1024*1024)) +
+              (((diff_total_bytes * 8) % (1024*1024))*0.000001);
+
+          tx_in_mbipsf = (float)tx_in_mbips;
+          rx_in_mbipsf = (float)rx_in_mbips;
+          total_in_mbipsf = (float)total_in_mbips;
+
+          curr = time(NULL);
+          d = localtime(&curr);
+
+		      // ctime(d) to print timeStamp
+          printf("%s: tx %.6f Mbits/sec rx %.6f Mbits/sec total %.6f Mbits/sec\n",
+              tmp2->ifname, tx_in_mbipsf, rx_in_mbipsf, total_in_mbipsf);
           tmp2++;
       }
       printf("\n");
@@ -238,6 +232,7 @@ int main(){
 
     return 0;
 }
+
 </pre>
 
 

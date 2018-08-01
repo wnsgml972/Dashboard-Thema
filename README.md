@@ -23,7 +23,8 @@
 * jsp 
   * process build bath 조절
 * conf 
-  * ffserver.conf,  네트워크 대역폭 사용자가 한계 설정 명령어 모음
+  * ffserver.conf  
+  * VM local 환경에서 네트워크 대역폭 한계 설정 명령어 모음, 수신량만 조절 가능, 송신량은 조절 불가
 * etri-jsp-sh 
   * 쉘 스크립트 모음
   * ifdown ifup, 원하는 인터페이스 down 또는 up 조절

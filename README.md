@@ -29,7 +29,7 @@
   * 쉘 스크립트 모음
   * ifdown ifup, 원하는 인터페이스 down 또는 up 조절
   * play-ffmpeg, input url 조절
-  * bw.sh 네트워크 대역폭 1초마다 계속,  bw1.sh 네트워크 대역폭 한번 
+  * bw.sh 네트워크 대역폭 1초마다 계속,  bw1.sh 네트워크 대역폭 한번, <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/bandwidth.md>
 
 ### Java Script
 * build/js/custom.min.js 

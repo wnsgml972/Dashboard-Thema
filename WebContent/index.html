@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>MPTCP TestBad</span></a>
+              <a href="index.html" class="site_title"><i><img src="images/gateway.png" alt="..." style="width:30px; height:30px;"></i> <span>MMMP Test</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -44,11 +44,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.png" alt="..." class="img-circle profile_img">
+                <img src="images/mmmp_logo.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>ETRI</h2>
+                <h2>MMMP</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -62,9 +62,9 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
+                      <li><a href="index.html">Multipath</a></li>
+                      <li><a href="index2.html">Security</a></li>
+                      <li><a href="index3.html">차등서비스</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
@@ -318,7 +318,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Transaction Summary <small>Weekly progress</small></h2>
+                    <h2>Traffic with Multi-Media, Multi-Path <small>SP, MP Test</small></h2>
                     <div class="clearfix"></div>
                   </div>
                   
@@ -349,16 +349,16 @@
 				 <button type="button" class="btn btn-default btn-lg" onclick="stop()">Stop</button>
                           </li>
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifup-enp0s9.jsp', myCallBack) ">ifup-enp0s9</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifup-enp0s9.jsp', myCallBack) ">IF UP</button>
                           </li>
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifdown-enp0s9.jsp', myCallBack) ">ifdown-enp0s9</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifdown-enp0s9.jsp', myCallBack) ">IF DOWN</button>
                           </li>
                           <li class="media event">
-                                 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/mptcp-on.jsp', myCallBack) ">mptcp on</button>
+                                 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/mptcp-on.jsp', myCallBack) ">MP ON</button>
                           </li>
                           <li class="media event">
-                                 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/mptcp-off.jsp', myCallBack) ">mptcp off</button>
+                                 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/mptcp-off.jsp', myCallBack) ">MP OFF</button>
                           </li>
                         </ul>
                        </center>
@@ -372,10 +372,14 @@
 
 		  <!-- start down content  (3) -->
           <div class="row">
-              <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Line Graph <small>enp0s8, tx+rx</small></h2>
+                    <h2>Interface 1 <small>enp0s8, tx+rx</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><h2 class="control-label">Speed &nbsp; </h2> 
+                        <h2 id="BW1" class="control-label"> 0 </h2><h2>Mbit/s</h2></li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -385,10 +389,14 @@
                 </div>
               </div>
 
-              <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Line Graph <small>enp0s9, tx+rx</small></h2>
+                    <h2>Interface 2 <small>enp0s9, tx+rx</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><h2 class="control-label">Speed &nbsp; </h2>
+                        <h2 id="BW2" class="control-label"> 0 </h2><h2>Mbit/s</h2></li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -398,7 +406,7 @@
                 </div>
               </div>
 
-
+		<!--
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
@@ -415,7 +423,7 @@
 		  </div>
                 </div>
               </div>
-            </div>
+            </div>-->
 
           </div>
 		  <!-- end down content  (3) -->

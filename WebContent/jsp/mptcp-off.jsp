@@ -10,7 +10,7 @@
     int lineCount = 0;
     String line="";
 
-    ProcessBuilder builder = new ProcessBuilder(bashCommand);
+    ProcessBuilder builder = new ProcessBuilder(scriptCommand);
     Process childProcess = null;
 
     try{

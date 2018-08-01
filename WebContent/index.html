@@ -340,19 +340,25 @@
                        <center>
                         <ul class="list-unstyled top_profiles scroll-view">
                           <li class="media event">
-							 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/start.jsp', myCallBack) ">Play</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/start.jsp', myCallBack) ">Play</button>
                           </li>
                           <li class="media event">
-							 <button type="button" class="btn btn-default btn-lg" onclick="pause()">Pause</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="pause()">Pause</button>
                           </li>
                           <li class="media event">
-							 <button type="button" class="btn btn-default btn-lg" onclick="stop()">Stop</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="stop()">Stop</button>
                           </li>
                           <li class="media event">
-							 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifdown-enp0s8.jsp', myCallBack) ">ifdown-enp0s8</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifup-enp0s9.jsp', myCallBack) ">ifup-enp0s9</button>
                           </li>
                           <li class="media event">
-							 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifup-enp0s8.jsp', myCallBack) ">ifup-enp0s8</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifdown-enp0s9.jsp', myCallBack) ">ifdown-enp0s9</button>
+                          </li>
+                          <li class="media event">
+                                 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/mptcp-on.jsp', myCallBack) ">mptcp on</button>
+                          </li>
+                          <li class="media event">
+                                 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/mptcp-off.jsp', myCallBack) ">mptcp off</button>
                           </li>
                         </ul>
                        </center>
@@ -369,7 +375,7 @@
               <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Line Graph <small>Sessions</small></h2>
+                    <h2>Line Graph <small>enp0s8, tx+rx</small></h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -382,7 +388,7 @@
               <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Line Graph <small>Sessions</small></h2>
+                    <h2>Line Graph <small>enp0s9, tx+rx</small></h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -396,16 +402,16 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>BW</h2>
+                  <h2>Bandwidth Measure<small>enp0s8, enp0s9</small></h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <div class ="row">
-			<h2 class="control-label col-md-3 col-sm-12 col-xs-12">Interface 1 : </h2> 
-			<h2 id="BW1" class="control-label col-md-9 col-sm-12 col-xs-12"> 0 </h2>
+			<h2 class="control-label col-md-4 col-sm-12 col-xs-12">enp0s8 : </h2> 
+			<h2 id="BW1" class="control-label col-md-8 col-sm-12 col-xs-12"> 0 </h2>
 			<br/><br/>
-			<h2 class="control-label col-md-3 col-sm-12 col-xs-12">Interface 2 : </h2>
-			<h2 id="BW2" class="control-label col-md-9 col-sm-12 col-xs-12"> 0 </h2>
+			<h2 class="control-label col-md-4 col-sm-12 col-xs-12">enp0s9 : </h2>
+			<h2 id="BW2" class="control-label col-md-8 col-sm-12 col-xs-12"> 0 </h2>
 		  </div>
                 </div>
               </div>

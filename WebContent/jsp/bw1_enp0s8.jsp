@@ -1,4 +1,4 @@
-<%@ page language="java" import= "java.io.*, java.util.*"  
+<%@ page language="java" import= "java.io.*, java.util.*"
    contentType="text/html;charset=EUC-KR" session="false" %>
 <html>
 <%
@@ -20,12 +20,8 @@
                     new InputStreamReader(
                           new SequenceInputStream(childProcess.getInputStream(), childProcess.getErrorStream())));
       while((line = br.readLine()) != null){
-        line = line.replaceAll(" ", "");
-        line = line.replaceAll("<html>", "");
-        line = line.replaceAll("</html>","");
-
 %>
-    <%=line%> 
+    <%=line%>
 <%
       }
       br.close();

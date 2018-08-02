@@ -18,7 +18,7 @@
     <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -151,7 +151,7 @@
                         <li><a href="#level1_2">Level One</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
@@ -277,7 +277,7 @@
 
         <!-- page content  top tiles  +  (up(2) + down(3)) -->
         <div class="right_col" role="main">
-        
+
         <!-- start top tiles -->
 <!--         <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -321,15 +321,15 @@
                     <h2>Traffic with Multi-Media, Multi-Path <small>SP, MP Test</small></h2>
                     <div class="clearfix"></div>
                   </div>
-                  
+
                   <div class="x_content">
                   <!-- 1 동영상 -->
                     <div class="col-md-10 col-sm-12 col-xs-12">
                       <div class="demo-container" style=" height:380px; background-color:#EFFBFB;">
 						<!--<div id="chart_plot_02" class="demo-placeholder"></div> -->
 						<center>
-						<video preload="none" controls poster="images/img.png" class="demo-placeholder" style="width:100%; height:380px;">
-						    <source src="http://localhost:12390/test1.webm" type="video/mp4" />
+						<video id="my_client_video" preload="none" controls poster="images/img.png" class="demo-placeholder" style="width:100%; height:380px;">
+						    <source src="http://192.168.10.1:12390/test1.webm" type="video/mp4" /> <!-- etri change -->
 						</video>
 						</center>
                       </div>
@@ -346,7 +346,7 @@
 				 <button type="button" class="btn btn-default btn-lg" onclick="pause()">Pause</button>
                           </li>
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="stop()">Stop</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/stop.jsp', myCallBack) ">Stop</button>
                           </li>
                           <li class="media event">
 				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifup-enp0s9.jsp', myCallBack) ">IF UP</button>
@@ -377,8 +377,8 @@
                   <div class="x_title">
                     <h2>Interface 1 <small>enp0s8, tx+rx</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><h2 class="control-label">Speed &nbsp; </h2> 
-                        <h2 id="BW1" class="control-label"> 0 </h2><h2>Mbit/s</h2></li>
+                      <li><h2 class="control-label">Speed &nbsp; </h2>
+                        <h2 id="BW1" class="control-label"> 0 </h2><h2>Kbit/s</h2></li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -395,7 +395,7 @@
                     <h2>Interface 2 <small>enp0s9, tx+rx</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><h2 class="control-label">Speed &nbsp; </h2>
-                        <h2 id="BW2" class="control-label"> 0 </h2><h2>Mbit/s</h2></li>
+                        <h2 id="BW2" class="control-label"> 0 </h2><h2>Kbit/s</h2></li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -415,7 +415,7 @@
                 </div>
                 <div class="x_content">
                   <div class ="row">
-			<h2 class="control-label col-md-4 col-sm-12 col-xs-12">enp0s8 : </h2> 
+			<h2 class="control-label col-md-4 col-sm-12 col-xs-12">enp0s8 : </h2>
 			<h2 id="BW1" class="control-label col-md-8 col-sm-12 col-xs-12"> 0 </h2>
 			<br/><br/>
 			<h2 class="control-label col-md-4 col-sm-12 col-xs-12">enp0s9 : </h2>
@@ -427,8 +427,8 @@
 
           </div>
 		  <!-- end down content  (3) -->
-      
-          
+
+
         </div>
         <!-- end page content  (up(2) + down(3))  -->
 
@@ -488,6 +488,6 @@
     <script src="build/js/custom.min.js"></script>
     <!-- Custom Scripts -->
     <script src="build/js/custom.jun.js"></script>
-	
+
   </body>
 </html>

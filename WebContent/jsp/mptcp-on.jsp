@@ -1,4 +1,4 @@
-<%@ page language="java" import= "java.io.*, java.util.*"  
+<%@ page language="java" import= "java.io.*, java.util.*"
    contentType="text/html;charset=EUC-KR" session="false" %>
 
 <html>
@@ -23,7 +23,7 @@
 
       while((line = br.readLine()) != null){
 %>
-    <%=line%><br> <!-- 결과 화면에 뿌리기... -->
+    <%=line%><br>
 <%
       }
       br.close();
@@ -35,4 +35,3 @@
    }
 %>
 </html>
-

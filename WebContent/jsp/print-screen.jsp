@@ -1,4 +1,4 @@
-<%@ page language="java" import= "java.io.*, java.util.*"  
+<%@ page language="java" import= "java.io.*, java.util.*"
    contentType="text/html;charset=EUC-KR" session="false" %>
 
 <html>
@@ -35,4 +35,3 @@
    }
 %>
 </html>
-

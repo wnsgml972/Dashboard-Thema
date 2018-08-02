@@ -48,3 +48,4 @@
 ### clone 시 할 것 
 1. /dashboard/conf/ffserver.conf의 ACL allow에 스트리밍 서버를 올릴 ip 추가  [conf 파일 변경]
 2. index.html -> <mp4> tag의 source를 스트리밍 서버 ip로 변경 [태그 내의 url 변경]
+3. user로 로그인하여 root 의 위치를 " /home/user " 로 만들거나, /dashboard/WebContent/jsp/* 파일들의 실행 path 모두 변경

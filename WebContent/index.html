@@ -340,10 +340,10 @@
                        <center>
                         <ul class="list-unstyled top_profiles scroll-view">
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/start.jsp', myCallBack) ">Play</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/start.jsp', myCallBack) ">Start</button>
                           </li>
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="pause()">Pause</button>
+				 <button type="button" class="btn btn-default btn-lg" onclick="play()">Play</button>
                           </li>
                           <li class="media event">
 				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/stop.jsp', myCallBack) ">Stop</button>
@@ -487,7 +487,7 @@
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
     <!-- Custom Scripts -->
-    <script src="build/js/custom.jun.js"></script>
+    <script src="build/js/custom.jun.js?var=1"></script>
 
   </body>
 </html>

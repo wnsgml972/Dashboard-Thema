@@ -1,10 +1,7 @@
 function play(){
-	alert("1");
-}
-function pause(){
-    alert('2');
-}
-function stop(){
-	alert("3");
+	var video = document.getElementById("my_client_video");
+	video.currentTime = 0;
+	video.play();
+	alert("click!");
 }
 

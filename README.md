@@ -45,3 +45,6 @@
   3. 결과를 ajax로 가져와 실행 
 * onload시 1초마다 bw1.sh를 실행하여 네트워크 대역폭을 line chart에 대입
 
+### clone 시 할 것 
+1. /dashboard/conf/ffserver.conf의 ACL allow에 스트리밍 서버를 올릴 ip 추가  [conf 파일 변경]
+2. index.html -> <mp4> tag의 source를 스트리밍 서버 ip로 변경 [태그 내의 url 변경]

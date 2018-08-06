@@ -3,12 +3,12 @@
 
 ## 환경 설정 (ubuntu 16.04, tomcat 8)
 * Tomcat
-  * <https://wnsgml972.github.io/linux/ubuntu-tomcat.html>
+  * <https://wnsgml972.github.io/linux/linux_ubuntu_tomcat.html>
 * JSP 
   * <https://wnsgml972.github.io/linux/linux_jsp.html>
 * ffserver conf 를 이용한 ffserver 실행 
-  * 설치 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver-config.html>
-  * 사용법 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver-streamming.html>
+  * 설치 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver_config.html>
+  * 사용법 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver_streamming.html>
 
 ## 키워드 [ 조절 ]
 * 프로그래밍 시 url path나 chart를 수정
@@ -44,6 +44,7 @@
   2. jsp 코드 내에서 프로세스 빌더를 이용해 쉘 스크립트 실행 
   3. 결과를 ajax로 가져와 실행 
 * onload시 1초마다 bw1.sh를 실행하여 네트워크 대역폭을 line chart에 대입
+* JSP를 이용한 쉘 스크립트 실행 <https://wnsgml972.github.io/linux/linux_shellscript.html>
 
 ### clone 시 할 것 
 1. /dashboard/conf/ffserver.conf의 ACL allow에 스트리밍 서버를 올릴 ip 추가  [conf 파일 변경]

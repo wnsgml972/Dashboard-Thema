@@ -14,7 +14,7 @@
   1. /dashboard/conf/ffserver.conf의 ACL allow에 스트리밍 서버를 올릴 ip 추가  [conf 파일 변경]
   2. user로 로그인하여 root 의 위치를 " /home/user " 로 만들거나, /dashboard/WebContent/jsp/* 파일들의 실행 path 모두 변경
   3. localhost interface 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/localhost.md>
-  4. IpSec 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/localhost.md>
+  4. IpSec 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/ipsec.md>
 
 ## 키워드 [ 조절 ]
 * 프로그래밍 시 url path나 chart를 수정

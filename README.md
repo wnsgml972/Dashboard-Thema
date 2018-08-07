@@ -15,6 +15,8 @@
   2. user로 로그인하여 root 의 위치를 " /home/user " 로 만들거나, /dashboard/WebContent/jsp/* 파일들의 실행 path 모두 변경
   3. localhost interface 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/localhost.md>
   4. IpSec 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/ipsec.md>
+  5. wget 사용을 위해 상대방 컴퓨터의 tomcat8 ROOT에 file1 ~ file4 올려놓기
+  6. 패킷 캡쳐 라이브러리 사용을 위한 pcap 다운 (ip capture 프로그램을 컴파일 하지 않을 시 상관 없음)
 
 ## 키워드 [ 조절 ]
 * 프로그래밍 시 url path나 chart를 수정

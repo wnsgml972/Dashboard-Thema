@@ -5,25 +5,25 @@
 #include <netinet/tcp.h>   //Provides declarations for tcp header
 #include <netinet/ip.h>    //Provides declarations for ip header
  
-char IPsec_Flag= 0;
+char IPsec_Flag= 0; 		//IPsec check bit
 
-void print_data (const u_char * data , int Size)
+void print_data (const u_char * data , int Size)     //packet data print
 {
 
     FILE* fp = NULL;
-    fp = fopen("packet.txt","w+");    
+    fp = fopen("packet.txt","w+");                  
     if(fp==NULL)
-	printf("FILE open error");
+	printf("FILE open error!\n");
     int i , j;
     for(i=0 ; i < Size ; i++) {
-        if( i!=0 && i%16==0) {  //if one line of hex printing is complete...
+        if( i!=0 && i%16==0) {              //if one line of hex printing is complete...
             printf("         ");
             for(j=i-16 ; j<i ; j++) {
-                if(data[j]>=32 && data[j]<=128)
+                if(data[j]>=32 && data[j]<=128)            //if ascii code
                   printf("%c", (unsigned char)data[j]);
-		else if(IPsec_Flag ==1)
+		else if(IPsec_Flag ==1)				
 		  printf(".");
-		else if(data[j]>=234 && data[j] <=237){
+		else if(data[j]>=234 && data[j] <=237){     //if UTF-8 korean
 		printf("%c%c%c",(unsigned char)data[j],(unsigned char)data[j+1],(unsigned char)data[j+2]);
 	j+=2;	}
 		else if(data[j]==10)
@@ -55,7 +55,7 @@ void print_data (const u_char * data , int Size)
                 else if(data[j]<32)
                   printf(" \b");
 		else
-			printf(" \b");
+		  printf(" \b");
             }
             printf("\n" );
         }
@@ -67,10 +67,13 @@ void print_data (const u_char * data , int Size)
  if(IPsec_Flag==0)
      fprintf(fp,"TCP");
   else
-      printf("ESP");
-fprintf(fp," $$$$$");
+     fprintf(fp,"ESP");
+fprintf(fp," ***ET30984ET30985***");                          //packet token protocol(Ex:$)
 
- // ------------------- fprint hex binary -------------------------
+
+
+
+// ------------------- fprint hex binary -------------------------
      
    for(i=0;i<Size;i++){
             fprintf(fp," %02X",(unsigned int)data[i]);
@@ -91,9 +94,11 @@ fprintf(fp," $$$$$");
                 else
                         ;
             }
-           fprintf(fp," $$$$$ " );
+           fprintf(fp," ***ET30984ET30985*** " );
         }
     }
+
+
 
      
  // -------------------  fprint UTF-16 Data ------------------------
@@ -136,7 +141,7 @@ fprintf(fp," $$$$$");
 
 		}
     }
-   fprintf(fp," $$$$$\n\n");	
+   fprintf(fp," ***ET30984ET30985***\n");	
 
 fclose(fp);
 

@@ -1,1 +1,1 @@
-ifconfig ipname down
+ifconfig "$1" down

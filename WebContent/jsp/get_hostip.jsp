@@ -3,7 +3,7 @@
 
 <html>
 <%
-    String path = "/home/user/tomcat8/webapps/ROOT/dashboard/etri-jsp-sh/mptcp_enable.sh";
+    String path = "/home/user/tomcat8/webapps/ROOT/dashboard/etri-jsp-sh/get_hostip.sh";
     String bashCommand[] = {"ls", "-al"}; // bash 명령어
     String scriptCommand[] = {"sh", path}; //shell script 실행
 
@@ -23,7 +23,7 @@
 
       while((line = br.readLine()) != null){
 %>
-    <%=line%><br>
+    <%=line%>
 <%
       }
       br.close();

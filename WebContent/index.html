@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i><img src="images/gateway.png" alt="..." style="width:30px; height:30px;"></i> <span>MMMP Test</span></a>
+              <a href="index.html" class="site_title"><img src="images/gateway.png" alt="..." style="width:30px; height:30px;"><span>&nbsp;MMMP Test</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -329,7 +329,7 @@
 						<!--<div id="chart_plot_02" class="demo-placeholder"></div> -->
 						<center>
 						<video id="my_client_video" preload="none" controls poster="images/img.png" class="demo-placeholder" style="width:100%; height:380px;">
-						    <source src="http://192.168.10.1:12390/test1.webm" type="video/mp4" /> <!-- etri change -->
+						    <source src="http://localhost:12390/test1.webm" type="video/mp4" /> <!-- etri change -->
 						</video>
 						</center>
                       </div>
@@ -340,19 +340,45 @@
                        <center>
                         <ul class="list-unstyled top_profiles scroll-view">
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/start.jsp', myCallBack) ">Start</button>
+				                        <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/start.jsp', myCallBack) ">Start</button>
                           </li>
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="play()">Play</button>
+				                        <button type="button" class="btn btn-default btn-lg" onclick="play()">Play</button>
                           </li>
                           <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/stop.jsp', myCallBack) ">Stop</button>
+				                        <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/stop.jsp', myCallBack) ">Stop</button>
                           </li>
-                          <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifup-enp0s9.jsp', myCallBack) ">IF UP</button>
-                          </li>
-                          <li class="media event">
-				 <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/ifdown-enp0s9.jsp', myCallBack) ">IF DOWN</button>
+                          <li>
+                            <div class="btn-group">
+                            <button data-toggle="dropdown" class="btn btn-default btn-lg dropdown-toggle" type="button" aria-expanded="false">IP Up &nbsp;<span class="caret"></span>
+                            </button>
+                            <ul role="menu" class="dropdown-menu">
+                              <li><a id="if-up1" onclick="httpGetAsync('./jsp/ifup.jsp', myCallBack)" >Primary Interface1</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li><a id="if-up2" onclick="httpGetAsync('./jsp/ifup.jsp', myCallBack)">Interface2</a>
+                              </li>
+                              <li><a id="if-up3" onclick="httpGetAsync('./jsp/ifup.jsp', myCallBack)">Interface3</a>
+                              </li>
+                              <li><a id="if-up4" onclick="httpGetAsync('./jsp/ifup.jsp', myCallBack)">Interface4</a>
+                              </li>
+                            </ul>
+                            </div>
+                            <div class="btn-group">
+                            <button data-toggle="dropdown" class="btn btn-default btn-lg dropdown-toggle" type="button" aria-expanded="false">IP Down &nbsp;<span class="caret"></span>
+                            </button>
+                            <ul role="menu" class="dropdown-menu">
+                              <li><a id="if-down1" onclick="httpGetAsync('./jsp/ifdown.jsp', myCallBack)" >Primary Interface1</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li><a id="if-down2" onclick="httpGetAsync('./jsp/ifdown.jsp', myCallBack)">Interface2</a>
+                              </li>
+                              <li><a id="if-down3" onclick="httpGetAsync('./jsp/ifdown.jsp', myCallBack)">Interface3</a>
+                              </li>
+                              <li><a id="if-down4" onclick="httpGetAsync('./jsp/ifdown.jsp', myCallBack)">Interface4</a>
+                              </li>
+                            </ul>
+                            </div>
                           </li>
                           <li class="media event">
                                  <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/mptcp-on.jsp', myCallBack) ">MP ON</button>
@@ -370,12 +396,12 @@
             </div>
           <!-- end up content (2) -->
 
-		  <!-- start down content  (3) -->
+		  <!-- start down content  (2), (2) -->
           <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Interface 1 <small>enp0s8, tx+rx</small></h2>
+                    <h2>Interface 1 &nbsp;<span id="interfaceName1">enp0s8, tx+rx</span></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><h2 class="control-label">Speed &nbsp; </h2>
                         <h2 id="BW1" class="control-label"> 0 </h2><h2>Kbit/s</h2></li>
@@ -392,7 +418,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Interface 2 <small>enp0s9, tx+rx</small></h2>
+                    <h2>Interface 2 &nbsp;<span id="interfaceName2">enp0s9, tx+rx</span></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><h2 class="control-label">Speed &nbsp; </h2>
                         <h2 id="BW2" class="control-label"> 0 </h2><h2>Kbit/s</h2></li>
@@ -405,32 +431,49 @@
                   </div>
                 </div>
               </div>
-
-		<!--
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Bandwidth Measure<small>enp0s8, enp0s9</small></h2>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <div class ="row">
-			<h2 class="control-label col-md-4 col-sm-12 col-xs-12">enp0s8 : </h2>
-			<h2 id="BW1" class="control-label col-md-8 col-sm-12 col-xs-12"> 0 </h2>
-			<br/><br/>
-			<h2 class="control-label col-md-4 col-sm-12 col-xs-12">enp0s9 : </h2>
-			<h2 id="BW2" class="control-label col-md-8 col-sm-12 col-xs-12"> 0 </h2>
-		  </div>
-                </div>
-              </div>
-            </div>-->
-
           </div>
-		  <!-- end down content  (3) -->
+
+          <!-- start down content  (2), (2) -->
+              <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Interface 3 &nbsp;<span id="interfaceName3">enp0s8, tx+rx</span></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                          <li><h2 class="control-label">Speed &nbsp; </h2>
+                            <h2 id="BW3" class="control-label"> 0 </h2><h2>Kbit/s</h2></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                      	<!-- 그래프 넣기 -->
+                        <canvas id="lineChart3"></canvas>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Interface 4 &nbsp;<span id="interfaceName4">enp0s9, tx+rx</span></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                          <li><h2 class="control-label">Speed &nbsp; </h2>
+                            <h2 id="BW4" class="control-label"> 0 </h2><h2>Kbit/s</h2></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                      	<!-- 그래프 넣기 -->
+                        <canvas id="lineChart4"></canvas>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+		  <!-- end down content  (2), (2) -->
 
 
         </div>
-        <!-- end page content  (up(2) + down(3))  -->
+        <!-- end page content  (up(2) + down(2),(2))  -->
 
 
 

@@ -22,7 +22,7 @@
 
       while((line = br.readLine()) != null){
 %>
-    <%=line%><br>
+    <%=line%>
 <%
       }
       br.close();

@@ -2,9 +2,10 @@
    contentType="text/html;charset=EUC-KR" session="false" %>
 <html>
 <%
-        String path = "/home/user/tomcat8/webapps/ROOT/dashboard/etri-jsp-sh/bw1.sh";
-        String bashCommand[] = {"ls", "-al"}; // bash 명령어
-        String scriptCommand[] = {"sh", path, "enp0s9"}; //shell script 실행
+    String param = request.getParameter("interfaceName");
+    String path = "/home/user/tomcat8/webapps/ROOT/dashboard/etri-jsp-sh/get_ifname2.sh";
+    String bashCommand[] = {"ls", "-al"}; // bash 명령어
+    String scriptCommand[] = {"sh", path, param}; //shell script 실행
 
     int lineCount = 0;
     String line="";

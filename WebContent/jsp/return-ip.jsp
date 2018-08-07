@@ -1,9 +1,10 @@
 <%@ page language="java" import= "java.io.*, java.util.*, java.net.* "
    contentType="text/html;charset=EUC-KR" session="false" %>
+   <%!   String my_client_ip = null; %>
 <%
 
 try {
-  String my_client_ip = null;
+
 
   boolean isLoopBack = true;
   Enumeration<NetworkInterface> en;
@@ -34,7 +35,9 @@ try {
    sb.append("/test1.webm");
 
    my_client_ip = sb.toString();
-
+%>
+   <%= my_client_ip %>
+<%
 } catch (SocketException e) {
   e.printStackTrace();
 }

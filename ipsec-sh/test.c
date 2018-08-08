@@ -68,7 +68,7 @@ void print_data (const u_char * data , int Size)     //packet data print
      fprintf(fp,"TCP");
   else
      fprintf(fp,"ESP");
-fprintf(fp," ***ET30984ET30985***");                          //packet token protocol(Ex:$)
+fprintf(fp,"***ET30984ET30985***");                          //packet token protocol(Ex:$)
 
 
 
@@ -94,7 +94,7 @@ fprintf(fp," ***ET30984ET30985***");                          //packet token pro
                 else
                         ;
             }
-           fprintf(fp," ***ET30984ET30985*** " );
+           fprintf(fp,"***ET30984ET30985***" );
         }
     }
 
@@ -141,7 +141,7 @@ fprintf(fp," ***ET30984ET30985***");                          //packet token pro
 
 		}
     }
-   fprintf(fp," ***ET30984ET30985***\n");	
+   fprintf(fp,"***ET30984ET30985***");	
 
 fclose(fp);
 

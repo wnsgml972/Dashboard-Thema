@@ -7,13 +7,13 @@ IF=$1
  
 while true
 do
-        wget http://192.168.1.2:/file1
+	wget http://192.168.1.2:/file1 -O /home/user/file1
 	sleep $INTERVAL
-        wget http://192.168.1.2:/file2
+        wget http://192.168.1.2:/file2 -O /home/user/file2
 	sleep $INTERVAL
-        wget http://192.168.1.2:/file3
+        wget http://192.168.1.2:/file3 -O /home/user/file3
 	sleep $INTERVAL
-        wget http://192.168.1.2:/file4
+        wget http://192.168.1.2:/file4 -O /home/user/file4
         sleep $INTERVAL
         rm file1.*
         rm file2.*

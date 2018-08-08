@@ -68,7 +68,7 @@ void print_data (const u_char * data , int Size)     //packet data print
      fprintf(fp,"TCP");
   else
      fprintf(fp,"ESP");
-fprintf(fp,"***ET30984ET30985***");                          //packet token protocol(Ex:$)
+fprintf(fp," ***ET30984ET30985***");                          //packet token protocol(Ex:$)
 
 
 
@@ -94,7 +94,7 @@ fprintf(fp,"***ET30984ET30985***");                          //packet token prot
                 else
                         ;
             }
-           fprintf(fp,"***ET30984ET30985***" );
+           fprintf(fp," ***ET30984ET30985*** " );
         }
     }
 
@@ -141,7 +141,7 @@ fprintf(fp,"***ET30984ET30985***");                          //packet token prot
 
 		}
     }
-   fprintf(fp,"***ET30984ET30985***");	
+   fprintf(fp," ***ET30984ET30985***\n");	
 
 fclose(fp);
 
@@ -149,9 +149,12 @@ fclose(fp);
  
 void print_esp_packet(const u_char * Buffer, int Size)
 {
+	printf("%d",Size);
+	
     if (Size > 363) {
       print_data(Buffer + 363, Size - 363 );
     }
+	printf("test2");
 }
 
 void print_tcp_packet(const u_char * Buffer, int Size)
@@ -168,6 +171,8 @@ void print_tcp_packet(const u_char * Buffer, int Size)
     if (Size > 322) {
       print_data(Buffer + 322, Size - 322 );
     }
+	else
+	print_data(Buffer, Size);
 }
 
 void process_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *buffer)
@@ -186,6 +191,9 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
 	    IPsec_Flag =1;
             print_esp_packet(buffer , size);
             break;
+	default: 
+		printf("test");
+		break;
     }
 }
  

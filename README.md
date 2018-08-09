@@ -10,13 +10,13 @@
   * 설치 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver_config.html>
   * 사용법 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver_streamming.html>
 
-## clone시 할 것
+## clone시 할 것 (user로 로그인 하면 편함!)
   1. /dashboard/conf/ffserver.conf의 ACL allow에 스트리밍 서버를 올릴 ip 추가  [conf 파일 변경]
-  2. user로 로그인하여 root 의 위치를 " /home/user " 로 만들거나, /dashboard/WebContent/jsp/* 파일들의 실행 path 모두 변경
+  2. /dashboard/WebContent/jsp/* 파일들의 실행 path 모두 변경 [user로 로그인 시 필요 없음]
   3. localhost interface 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/localhost.md>
   4. IpSec 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/ipsec.md>
-  5. wget 사용을 위해 상대방 컴퓨터의 tomcat8 ROOT에 file1 ~ file4 올려놓기
-  6. 패킷 캡쳐 라이브러리 사용을 위한 pcap 다운 (ip capture 프로그램을 컴파일 하지 않을 시 상관 없음)
+  5. wget 사용을 위해 상대방 컴퓨터의 ROOT에 file1 ~ file4 올려놓기
+  6. ipsec-sh 디렉토리의 path 변경 [user로 로그인 시 필요 없음]
 
 ## 키워드 [ 조절 ]
 * 프로그래밍 시 url path나 chart를 수정
@@ -38,6 +38,9 @@
   * ifdown ifup, 원하는 인터페이스 down 또는 up 조절
   * play-ffmpeg, input url 조절
   * bw.sh 네트워크 대역폭 1초마다 계속,  bw1.sh 네트워크 대역폭 한번, <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/bandwidth.md>
+* ipsec-sh
+  * 쉘 스크립트 모음
+  * wget, capture 프로그램이 있음
 
 ### Java Script
 * build/js/custom.min.js
@@ -47,9 +50,9 @@
   * 커스텀 자바 스크립트
 
 ### Flow
-* index.html의 media event 버튼 클릭 시
+* 버튼 클릭 시
   1. jsp 코드 호출
   2. jsp 코드 내에서 프로세스 빌더를 이용해 쉘 스크립트 실행
   3. 결과를 ajax로 가져와 실행
-* onload시 1초마다 bw1.sh를 실행하여 네트워크 대역폭을 line chart에 대입
+* onload시 1초마다 쉘 스크립트를 실행하여 네트워크 대역폭을 line chart에 대입
 * JSP를 이용한 쉘 스크립트 실행 <https://wnsgml972.github.io/linux/linux_shellscript.html>

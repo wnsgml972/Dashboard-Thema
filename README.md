@@ -15,8 +15,9 @@
   2. /dashboard/WebContent/jsp/* 파일들의 실행 path 모두 변경 [user로 로그인 시 필요 없음]
   3. localhost interface 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/localhost.md>
   4. IpSec 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/ipsec.md>
-  5. wget 사용을 위해 상대방 컴퓨터의 ROOT에 file1 ~ file4 올려놓기
-  6. ipsec-sh 디렉토리의 path 변경 [user로 로그인 시 필요 없음]
+  5. GRE Tunnel 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/gre.md>
+  6. wget 사용을 위해 상대방 컴퓨터의 ROOT에 file1 ~ file4 올려놓기
+  7. ipsec-sh 디렉토리의 path 변경 [user로 로그인 시 필요 없음]
 
 ## 키워드 [ 조절 ]
 * 프로그래밍 시 url path나 chart를 수정
@@ -41,6 +42,9 @@
 * ipsec-sh
   * 쉘 스크립트 모음
   * wget, capture 프로그램이 있음
+* system-cpp-sh
+  * 시스템 관리 cpp + 쉘 스크립트 모음
+  * <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/system.md>
 
 ### Java Script
 * build/js/custom.min.js

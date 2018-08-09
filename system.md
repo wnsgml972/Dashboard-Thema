@@ -2,13 +2,13 @@
 
 ### System Status Check
 
-1. date.sh
+1. date.sh  
 
-2. hostname.sh
+2. hostname.sh  
 
 3. hostip.sh
 
-4. cpusage ```$ g++ cpusage.c -o cpusage```
+4. cpusage ```$ g++ cpusage.cpp -o cpusage```
 
 5. cpuload ```$ g++ cpuload.cpp -o cpuload -std=c++11```
 

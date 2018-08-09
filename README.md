@@ -14,8 +14,8 @@
   1. /dashboard/conf/ffserver.conf의 ACL allow에 스트리밍 서버를 올릴 ip 추가  [conf 파일 변경]
   2. /dashboard/WebContent/jsp/* 파일들의 실행 path 모두 변경 [user로 로그인 시 필요 없음]
   3. localhost interface 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/localhost.md>
-  4. IpSec 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/ipsec.md>
-  5. GRE Tunnel 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/gre.md>
+  4. ipsec 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/ipsec.md>
+  5. gre tunnel 설정 <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/gre.md>
   6. wget 사용을 위해 상대방 컴퓨터의 ROOT에 file1 ~ file4 올려놓기
   7. ipsec-sh 디렉토리의 path 변경 [user로 로그인 시 필요 없음]
 
@@ -38,7 +38,8 @@
   * 쉘 스크립트 모음
   * ifdown ifup, 원하는 인터페이스 down 또는 up 조절
   * play-ffmpeg, input url 조절
-  * bw.sh 네트워크 대역폭 1초마다 계속,  bw1.sh 네트워크 대역폭 한번, <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/bandwidth.md>
+  * bw.sh 네트워크 대역폭 1초마다 계속,  bw1.sh 네트워크 대역폭 한번
+  * <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/bandwidth.md>
 * ipsec-sh
   * 쉘 스크립트 모음
   * wget, capture 프로그램이 있음

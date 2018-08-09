@@ -18,6 +18,6 @@
 
 8. sessioncount.sh
 
-9. netifinfo g++ netifinfo.cpp -o netifinfo
+9. netifinfo ```$ g++ netifinfo.cpp -o netifinfo```
 
- ```ifindex ifname hwaddr inetaddr linkspeed oeprstate```
+     ```ifindex ifname hwaddr inetaddr linkspeed oeprstate```

@@ -26,7 +26,9 @@
 
 ### HTML
 * index.html  
-  * __media event__ 버튼 클릭, url path 조절
+* index2.html  
+* index3.html  
+* system.html (추 후)
 
 ### Directory
 * jsp

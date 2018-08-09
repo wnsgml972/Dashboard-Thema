@@ -8,10 +8,11 @@ $ sudo apt install strongswan-starter
 </pre>
 
 ### 2-1) ipsec  설정 (HOST1)
- $ cat /etc/ipsec.conf
-#ipsec.conf - strongSwan IPsec configuration file
+
+* $ cat /etc/ipsec.conf
 
 <pre>
+#ipsec.conf - strongSwan IPsec configuration file
 config setup
 
 conn %default
@@ -33,11 +34,12 @@ conn gw12-8
         authby=secret
 </pre>
 
+<br/>
 
- $ cat /etc/ipsec.secrets
-# This file holds shared secrets or RSA private keys for authentication.
+* $ cat /etc/ipsec.secrets
 
 <pre>
+# This file holds shared secrets or RSA private keys for authentication.
 # RSA private key for this host, authenticating it to any other host
 # which knows the public part.
 192.168.10.1 192.168.10.2 : PSK "1234567890"
@@ -46,11 +48,10 @@ conn gw12-8
 
 ### 2-2) ipsec  설정 (HOST2)
 
-
- $ cat /etc/ipsec.conf
-#ipsec.conf - strongSwan IPsec configuration file
+* $ cat /etc/ipsec.conf
 
 <pre>
+#ipsec.conf - strongSwan IPsec configuration file
 config setup
 
 conn %default
@@ -72,10 +73,12 @@ conn gw21-8
         authby=secret
 </pre>
 
- $ cat /etc/ipsec.secrets
-# This file holds shared secrets or RSA private keys for authentication.
+<br/>
+
+* $ cat /etc/ipsec.secrets
 
 <pre>
+# This file holds shared secrets or RSA private keys for authentication.
 # RSA private key for this host, authenticating it to any other host
 # which knows the public part.
 192.168.10.2 192.168.10.1 : PSK "1234567890"

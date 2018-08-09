@@ -1,7 +1,7 @@
 
 ## ETRI Dashboard 정리
 
-## 환경 설정 (ubuntu 16.04, tomcat 8)
+## 환경 설정 (ubuntu 16.04, tomcat 8, mptcp 커널로 부팅)
 * Tomcat
   * <https://wnsgml972.github.io/linux/linux_ubuntu_tomcat.html>
 * JSP

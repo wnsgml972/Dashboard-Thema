@@ -7,7 +7,7 @@ IF=$1
 
 while true
 do
-        wget ftp://user:1@192.168.10.2/file1
+        wget ftp://user:1@192.168.10.2/file1 
 	sleep $INTERVAL
         wget ftp://user:1@192.168.10.2/file2
 	sleep $INTERVAL

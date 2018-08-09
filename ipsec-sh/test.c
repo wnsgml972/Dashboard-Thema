@@ -23,6 +23,8 @@ void print_data (const u_char * data , int Size)     //packet data print
                   printf("%c", (unsigned char)data[j]);
 		else if(IPsec_Flag ==1)				
 		  printf(".");
+		else if(data[j]==63)
+			;
 		else if(data[j]>=234 && data[j] <=237){     //if UTF-8 korean
 		printf("%c%c%c",(unsigned char)data[j],(unsigned char)data[j+1],(unsigned char)data[j+2]);
 	j+=2;	}
@@ -60,7 +62,7 @@ void print_data (const u_char * data , int Size)     //packet data print
             printf("\n" );
         }
     }
-
+printf("\n\n");
 
 // ----------------- fprint ICMP / ESP Header ----------------------
 
@@ -68,7 +70,7 @@ void print_data (const u_char * data , int Size)     //packet data print
      fprintf(fp,"TCP");
   else
      fprintf(fp,"ESP");
-fprintf(fp," ***ET30984ET30985***");                          //packet token protocol(Ex:$)
+fprintf(fp,"@@@ET30984ET30985@@@");                          //packet token protocol(Ex:$)
 
 
 
@@ -82,10 +84,10 @@ fprintf(fp," ***ET30984ET30985***");                          //packet token pro
            ; 
             for(j=i-i%16 ; j<=i ; j++) {
                 if(data[j] >=32 && data[j]<=128)        //English Ascii
-             fprintf(fp,"%c",(unsigned char)data[j]);
+            ;//fprintf(fp,"%c",(unsigned char)data[j]);
                 else if(data[j]>=234 && data[j] <=237){ //Korean Ascii
-              //  printf("%c%c%c",(unsigned char)data[j],(unsigned char)data[j+1],(unsigned char)data[j+2]);
-                j+=2;  
+             ; //  printf("%c%c%c",(unsigned char)data[j],(unsigned char)data[j+1],(unsigned char)data[j+2]);
+              //  j+=2;  
                }
                 else if(data[j]==10)
                         ;
@@ -94,10 +96,9 @@ fprintf(fp," ***ET30984ET30985***");                          //packet token pro
                 else
                         ;
             }
-           fprintf(fp," ***ET30984ET30985*** " );
         }
     }
-
+ fprintf(fp,"@@@ET30984ET30985@@@" );
 
 
      
@@ -127,7 +128,7 @@ fprintf(fp," ***ET30984ET30985***");                          //packet token pro
 	if( i==Size -1)  //last data print
 		for(j=i-i%16; j<=i; j++)
 		{
-		  if(data[j] >=32 && data[j]<=128)        //English Ascii
+		  if(data[j] >=32 && data[j]<=127)        //English Asciii
                fprintf(fp,"%c",(unsigned char)data[j]);
                 else if(data[j]>=234 && data[j] <=237){ //Korean Ascii
                fprintf(fp,"%c%c%c",(unsigned char)data[j],(unsigned char)data[j+1],(unsigned char)data[j+2]);
@@ -141,20 +142,16 @@ fprintf(fp," ***ET30984ET30985***");                          //packet token pro
 
 		}
     }
-   fprintf(fp," ***ET30984ET30985***\n");	
-
 fclose(fp);
 
 }
  
 void print_esp_packet(const u_char * Buffer, int Size)
 {
-	printf("%d",Size);
-	
-    if (Size > 363) {
-      print_data(Buffer + 363, Size - 363 );
-    }
-	printf("test2");
+	if(Size>150)
+     	 print_data(Buffer+66, Size-66);
+   	 else
+            ;
 }
 
 void print_tcp_packet(const u_char * Buffer, int Size)
@@ -168,11 +165,14 @@ void print_tcp_packet(const u_char * Buffer, int Size)
 
     int header_size =  sizeof(struct ethhdr) + iphdrlen + tcph->doff*4;
 
-    if (Size > 322) {
-      print_data(Buffer + 322, Size - 322 );
-    }
-	else
-	print_data(Buffer, Size);
+   // if (Size > 322) {
+   //	    printf("-----------------------------------------------\n\n\n");
+   //   print_data(Buffer + 322, Size - 322 );
+    
+    if(Size>150)    
+      print_data(Buffer+66, Size-66);
+    else
+	    ;
 }
 
 void process_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *buffer)
@@ -191,9 +191,8 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
 	    IPsec_Flag =1;
             print_esp_packet(buffer , size);
             break;
-	default: 
-		printf("test");
-		break;
+	default : 
+	    break;
     }
 }
  

@@ -28,6 +28,14 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <style>
+    .ellipsis{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    </style>
   </head>
 
   <body class="nav-md">
@@ -283,7 +291,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>TCP Protocol<small>IPSec OFF</small></h2>
+                    <h2>FTP Protocol<small>IPSec OFF</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
@@ -302,11 +310,11 @@
   						             </div >
                            <div class="col-md-6 col-sm-12 col-xs-12" style="border: 1px solid black; height:120px;">
                              <h2 style="color:black; margin-bottom:0;">Binary Data</h2>
-                             <span id="snapping_binary1">Test Binary Data </span>
+                             <div id="snapping_binary1" style="height:80px;" class="ellipsis">Test Binary Data </div>
   						             </div >
                            <div class="col-md-5 col-sm-12 col-xs-12" style="border: 1px solid black; height:120px;">
                              <h2 style="color:black; margin-bottom:0;">UTF-8 Encoding Data</h2>
-                             <span id="snapping_utf1">Test UTF Data </span>
+                             <div id="snapping_utf1" style="height:80px;" class="ellipsis">Test UTF Data </div>
   						             </div >
 						             </div >
                          <div class="col-md-3 col-sm-12 col-xs-12" style="background-color:white; height:120px; margin-top:30px;">
@@ -354,11 +362,9 @@
                               <button data-toggle="dropdown" class="btn btn-default btn-lg dropdown-toggle" type="button" aria-expanded="false">Start &nbsp;<span class="caret"></span>
                               </button>
                               <ul role="menu" class="dropdown-menu">
-                                <li>
-
-                                  <a onclick="httpGetAsync('./jsp/tcp-wget.jsp', myCallBack)" >Traffic Start</a>
+                                <li><a onclick="httpGetAsync('./jsp/wget.jsp', myCallBack)" >Traffic Start</a>
                                 </li>
-                                <li><a onclick="httpGetAsync('./jsp/tcp-out.jsp', myCallBack)">Capture Program Start</a>
+                                <li><a onclick="httpGetAsync('./jsp/out.jsp', myCallBack)">Capture Program Start</a>
                                 </li>
                               </ul>
                               </div>
@@ -368,7 +374,7 @@
                             <button data-toggle="dropdown" class="btn btn-default btn-lg dropdown-toggle" type="button" aria-expanded="false">Capture &nbsp;<span class="caret"></span>
                             </button>
                             <ul role="menu" class="dropdown-menu">
-                              <li><a onclick="httpGetAsync('./jsp/capture.jsp', my_capture1)" >Capture Start</a>
+                              <li><a onclick="capturing1()" >Capture Start</a>
                               </li>
                               <li><a onclick="my_clear1()" >Clear</a>
                               </li>
@@ -393,7 +399,7 @@
                     <div class="col-md-12">
                       <div class="x_panel">
                         <div class="x_title">
-                          <h2>TCP Protocol<small>IPSec OFF</small></h2>
+                          <h2>ESP Protocol<small>IPSec OFF</small></h2>
                           <div class="clearfix"></div>
                         </div>
 
@@ -412,11 +418,11 @@
         						             </div >
                                  <div class="col-md-6 col-sm-12 col-xs-12" style="border: 1px solid black; height:120px;">
                                    <h2 style="color:black; margin-bottom:0;">Binary Data</h2>
-                                   <span id="snapping_binary2">Test Binary Data </span>
+                                   <div id="snapping_binary2" style="height:80px;" class="ellipsis">Test Binary Data </div>
         						             </div >
                                  <div class="col-md-5 col-sm-12 col-xs-12" style="border: 1px solid black; height:120px;">
                                    <h2 style="color:black; margin-bottom:0;">UTF-8 Encoding Data</h2>
-                                   <span id="snapping_utf2">Test UTF Data </span>
+                                   <div id="snapping_utf2" style="height:80px;" class="ellipsis">Test UTF Data </div>
         						             </div >
       						             </div >
                                <div class="col-md-3 col-sm-12 col-xs-12" style="background-color:white; height:120px; margin-top:30px;">
@@ -466,9 +472,9 @@
                                       <ul role="menu" class="dropdown-menu">
                                         <li><a onclick="httpGetAsync('./jsp/ipsec-start.jsp', myCallBack)" >IPSec Start</a>
                                         </li>
-                                        <li><a onclick="httpGetAsync('./jsp/tcp-wget.jsp', myCallBack)" >Traffic Start</a>
+                                        <li><a onclick="httpGetAsync('./jsp/wget.jsp', myCallBack)" >Traffic Start</a>
                                         </li>
-                                        <li><a onclick="httpGetAsync('./jsp/tcp-out.jsp', myCallBack)">Capture Program Start</a>
+                                        <li><a onclick="httpGetAsync('./jsp/out.jsp', myCallBack)">Capture Program Start</a>
                                         </li>
                                       </ul>
                                       </div>
@@ -478,7 +484,8 @@
                                     <button data-toggle="dropdown" class="btn btn-default btn-lg dropdown-toggle" type="button" aria-expanded="false">Capture &nbsp;<span class="caret"></span>
                                     </button>
                                     <ul role="menu" class="dropdown-menu">
-                                      <li><a onclick="httpGetAsync('./jsp/capture.jsp', my_capture2)" >Capture Start</a>
+
+                                      <li><a onclick="capturing2()" >Capture Start</a>
                                       </li>
                                       <li><a onclick="my_clear2()" >Clear</a>
                                       </li>

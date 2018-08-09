@@ -10,7 +10,7 @@
   * 설치 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver_config.html>
   * 사용법 <https://wnsgml972.github.io/ffmpeg/ffmpeg_ffserver_streamming.html>
 * VM Adapter (5개 이상의 어뎁터 생성)
-  * <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/create_more_than_5_vms.md>
+  * <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/in_vm_create_more_than_5_adaters.md>
 * localhost Interface 설정
   * <https://github.com/wnsgml972/Dashboard-Thema/blob/etri/localhost.md>
 * IpSec

@@ -21,20 +21,23 @@ conn %default
         keyingtries=1
 
 conn gw12-8
-    keyexchange=ikev2
-    left=192.168.10.1
-    leftid=192.168.10.1
-    right=192.168.10.2
-    rightid=192.168.10.2
-    auto=start
-    ike=aes128-md5-modp1024!
-    esp=aes128-sha1-modp1024!
-    type=transport
-    authby=secret
+        keyexchange=ikev2
+        left=192.168.10.1
+        leftid=192.168.10.1
+        right=192.168.10.2
+        rightid=192.168.10.2
+        auto=start
+        ike=aes128-md5-modp1024!
+        esp=aes128-sha1-modp1024!
+        type=transport
+        authby=secret
+</pre>
 
-$ cat /etc/ipsec.secrets
+
+ $ cat /etc/ipsec.secrets
 # This file holds shared secrets or RSA private keys for authentication.
 
+<pre>
 # RSA private key for this host, authenticating it to any other host
 # which knows the public part.
 192.168.10.1 192.168.10.2 : PSK "1234567890"
@@ -43,10 +46,11 @@ $ cat /etc/ipsec.secrets
 
 ### 2-2) ipsec  설정 (HOST2)
 
-<pre>
+
  $ cat /etc/ipsec.conf
 #ipsec.conf - strongSwan IPsec configuration file
 
+<pre>
 config setup
 
 conn %default
@@ -56,20 +60,22 @@ conn %default
         keyingtries=1
 
 conn gw21-8
-    keyexchange=ikev2
-    left=192.168.10.2
-    leftid=192.168.10.2
-    right=192.168.10.1
-    rightid=192.168.10.1
-    auto=start
-    ike=aes128-md5-modp1024!
-    esp=aes128-sha1-modp1024!
-    type=transport
-    authby=secret
+        keyexchange=ikev2
+        left=192.168.10.2
+        leftid=192.168.10.2
+        right=192.168.10.1
+        rightid=192.168.10.1
+        auto=start
+        ike=aes128-md5-modp1024!
+        esp=aes128-sha1-modp1024!
+        type=transport
+        authby=secret
+</pre>
 
-$ cat /etc/ipsec.secrets
+ $ cat /etc/ipsec.secrets
 # This file holds shared secrets or RSA private keys for authentication.
 
+<pre>
 # RSA private key for this host, authenticating it to any other host
 # which knows the public part.
 192.168.10.2 192.168.10.1 : PSK "1234567890"

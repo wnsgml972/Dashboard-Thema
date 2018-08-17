@@ -2,8 +2,9 @@
    contentType="text/html;charset=EUC-KR" session="false" %>
 
 <%
+    String param = request.getParameter("interfaceName");
     String path = "/home/user/tomcat8/webapps/ROOT/dashboard/ipsec-sh/out";
-    String bashCommand[] = {path, "enp0s8"}; // bash 명령어
+    String bashCommand[] = {path, param}; // bash 명령어
     String scriptCommand[] = {"sh", path}; //shell script 실행
 
     int lineCount = 0;

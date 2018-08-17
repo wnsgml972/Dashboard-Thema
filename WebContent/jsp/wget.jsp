@@ -1,5 +1,5 @@
 <%@ page language="java" import= "java.io.*, java.util.*, java.net.* "
-   contentType="text/html;charset=EUC-KR" session="false" %>
+    contentType="text/html;charset=EUC-KR" session="false" %>
 
 <%
     String path = "/home/user/tomcat8/webapps/ROOT/dashboard/ipsec-sh/wget.sh";

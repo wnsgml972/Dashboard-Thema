@@ -336,12 +336,12 @@
                            <img src="./images/gateway.png" width="140px" height="110px" style="margin-left:115px;">
                          </div >
                          <div class="col-md-8 col-sm-12 col-xs-12" style="background-color:white; height:120px; ">
-                           <div class="col-md-12 col-sm-12 col-xs-12" style="background-image: url('./images/ipsec/b1.gif'); background-repeat: no-repeat; height:55px;">
+                           <div class="col-md-12 col-sm-12 col-xs-12" style="height:55px; border:1px solid black;">
                            </div >
                            <div class="col-md-12 col-sm-12 col-xs-12" style="background-color:white; height:10px;">
 
                            </div >
-                           <div class="col-md-12 col-sm-12 col-xs-12" style="background-image: url('./images/ipsec/b1.gif'); background-repeat: no-repeat; height:55px;">
+                           <div class="col-md-12 col-sm-12 col-xs-12" style="height:55px; border:1px solid black;">
                            </div >
                          </div >
                          <div class="col-md-2 col-sm-12 col-xs-12" style="background-color:white; height:120px; ">
@@ -364,7 +364,7 @@
                               <ul role="menu" class="dropdown-menu">
                                 <li><a onclick="httpGetAsync('./jsp/wget.jsp', myCallBack)" >Traffic Start</a>
                                 </li>
-                                <li><a onclick="httpGetAsync('./jsp/out.jsp', myCallBack)">Capture Program Start</a>
+                                <li><a onclick="httpGetAsyncMainInterface('./jsp/out.jsp', myCallBack)">Capture Program Start</a>
                                 </li>
                               </ul>
                               </div>
@@ -443,13 +443,13 @@
                                <div class="col-md-2 col-sm-12 col-xs-12" style="background-color:white; height:120px;">
                                  <img src="./images/gateway.png" width="140px" height="110px" style="margin-left:115px;">
                                </div >
-                               <div class="col-md-8 col-sm-12 col-xs-12" style="background-color:white; height:120px; ">
-                                 <div class="col-md-12 col-sm-12 col-xs-12" style="background-image: url('./images/ipsec/b2.gif'); background-repeat: repeat; height:55px;">
+                               <div id="ipsecColor1" class="col-md-8 col-sm-12 col-xs-12" style="background-color:white; height:120px; ">
+                                 <div class="col-md-12 col-sm-12 col-xs-12" style="height:55px; border:1px solid black;">
                                  </div >
-                                 <div class="col-md-12 col-sm-12 col-xs-12" style="background-color:white; height:10px;">
+                                 <div id="ipsecColor2" class="col-md-12 col-sm-12 col-xs-12" style="background-color:white; height:10px;">
 
                                  </div >
-                                 <div class="col-md-12 col-sm-12 col-xs-12" style="background-image: url('./images/ipsec/b2.gif'); background-repeat: repeat; height:55px;">
+                                 <div class="col-md-12 col-sm-12 col-xs-12" style="height:55px; border:1px solid black;">
                                  </div >
                                </div >
                                <div class="col-md-2 col-sm-12 col-xs-12" style="background-color:white; height:120px; ">
@@ -470,7 +470,7 @@
                                       <button data-toggle="dropdown" class="btn btn-default btn-lg dropdown-toggle" type="button" aria-expanded="false">Start &nbsp;<span class="caret"></span>
                                       </button>
                                       <ul role="menu" class="dropdown-menu">
-                                        <li><a onclick="httpGetAsync('./jsp/ipsec-start.jsp', myCallBack)" >IPSec Start</a>
+                                        <li><a onclick="httpGetAsync('./jsp/ipsec-start.jsp', myCallBackIpSecStart)" >IPSec Start</a>
                                         </li>
                                         <li><a onclick="httpGetAsync('./jsp/wget.jsp', myCallBack)" >Traffic Start</a>
                                         </li>
@@ -493,7 +493,7 @@
                                     </div>
                                   </li>
                                   <li class="media event">
-        				                        <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/esp-stop.jsp', myCallBack)">Stop</button>
+        				                        <button type="button" class="btn btn-default btn-lg" onclick="httpGetAsync('./jsp/esp-stop.jsp', myCallBackIpSecStop)">Stop</button>
                                   </li>
                                 </ul>
                                </center>

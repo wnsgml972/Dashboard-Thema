@@ -10,9 +10,9 @@ function play1(){
 	video.play();
 	alert("click!");
 }
-function play(){
-	var video = document.getElementById("my_client_video1");
+function play2(){
+	var video = document.getElementById("my_client_video2");
 	video.currentTime = 0;
-	video.play2();
+	video.play();
 	alert("click!");
 }
